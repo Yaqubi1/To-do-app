@@ -2,15 +2,18 @@ input {
     height: 20px;
 }
 
-button,
+button {
+    height: 26px;
+}
+
 #addTodo {
     height: 26px;
 }
 
-#toDoTitle {
+/* #toDoTitle {
  
 }
 
 #changeButton {
-    
-}
+
+} */

@@ -45,7 +45,7 @@ function addListItemforToDoList() {
     toDoListItem.appendChild(toDoListChangeButton);
 
     let toDoListFinishedButton = document.createElement("button");
-    toDoListChangeButton.innerHTML = "Färdig";
+    toDoListFinishedButton.innerHTML = "Färdig";
     toDoListInput.setAttribute("id", "changeButton");
     toDoListItem.appendChild(toDoListFinishedButton);
 
