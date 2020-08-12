@@ -63,11 +63,12 @@ function addListItemforToDoList() {
 function myFunction(event) {
     let x = event.target.getAttribute("id");
 
-    if (document.getElementById(x).parentElement.parentElement.children[0].innerHTML.substr(1, 5) === "input") {
-        document.getElementById(x).parentElement.remove();
-    } else {
+    if (typeof document.getElementById(x).parentElement.parentElement.children[0] === "undefined" || typeof document.getElementById(x).parentElement.parentElement.children[1] === "undefined") {
+        document.getElementById(x).parentElement.parentElement.previousSibling.remove();
         document.getElementById(x).parentElement.parentElement.remove();
-        document.getElementById(x).parentElement.parentElement.previousSibling.remove(); // remove h1 Att göra
+    } else {
+        document.getElementById(x).parentElement.remove();
+        // document.getElementById(x).parentElement.parentElement.remove();
     }
     
 
