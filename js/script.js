@@ -1,9 +1,8 @@
 let toDoClickCounter = 0;
-let FinishedClickCounter = 0;
+let finishedClickCounter = 0;
 let finishedButtonCounter = 0;
-let ChangeButtonCounter = 0;
-let ChangeButtonCounter2 = 0;
-let finishedButton = [];
+let changeButtonCounter = 0;
+let changeButtonCounter2 = 0;
 
 document.getElementById("addTodo").addEventListener("click", function addToDoList() {
     let x = document.getElementById("syssla").value;
@@ -38,7 +37,7 @@ function addListItemforToDoList() {
 
     let toDoListInput = document.createElement("input");
     toDoListInput.setAttribute("type", "text");
-    toDoListInput.setAttribute("id", "changeButtonid" + ChangeButtonCounter);
+    toDoListInput.setAttribute("id", "changeButtonId" + changeButtonCounter);
 
     let syssla = document.getElementById("syssla");
     toDoListInput.setAttribute("value", syssla.value);
@@ -48,9 +47,9 @@ function addListItemforToDoList() {
 
     let toDoListChangeButton = document.createElement("button");
     toDoListChangeButton.innerHTML = "Ändra";
-    toDoListChangeButton.setAttribute("id", "changeButtonid" + ChangeButtonCounter);
+    toDoListChangeButton.setAttribute("id", "changeButtonId" + changeButtonCounter);
     toDoListChangeButton.setAttribute("onclick", "changeInToDo(event)");
-    ChangeButtonCounter++;
+    changeButtonCounter++;
     toDoListItem.appendChild(toDoListChangeButton);
 
     let toDoListFinishedButton = document.createElement("button");
@@ -64,19 +63,18 @@ function addListItemforToDoList() {
 
 function changeInToDo(event) {
     let y = event.target.getAttribute("id");
-    console.log(document.getElementById(y).previousSibling.value);
-//     if (document.getElementById(y).previousSibling.disabled == "true") {
-//         document.getElementById(y).previousSibling.disabled=false;
-//     } else {
-//         document.getElementById(y).previousSibling.disabled=true;
-//     }
- }
+    if (document.getElementById(y).parentElement.children[0].disabled == true) {
+        document.getElementById(y).parentElement.children[0].disabled = false;
+    } else {
+        document.getElementById(y).parentElement.children[0].disabled = true;
+    }
+    
+}
 
 function createFinishedList(event) {
     toDoClickCounter--;
-    FinishedClickCounter++;
-    let y = event.target.getAttribute("id");
-    console.log(y);
+    finishedClickCounter++;
+    let yx = event.target.getAttribute("id");
     if (typeof document.body.children[5] === "undefined") {
         let finishedTitle = document.createElement("h1");
         finishedTitle.innerHTML = "Färdiga";
@@ -94,7 +92,7 @@ function createFinishedList(event) {
         let finishedListInput = document.createElement("input");
         finishedListInput.setAttribute("type", "text");
 
-        let syssla2 = document.getElementById(y).parentElement.children[0].value;
+        let syssla2 = document.getElementById(yx).parentElement.children[0].value;
         finishedListInput.setAttribute("value", syssla2);
 
         finishedListInput.setAttribute("disabled", true)
@@ -102,9 +100,9 @@ function createFinishedList(event) {
 
         let finishedListChangeButton = document.createElement("button");
         finishedListChangeButton.innerHTML = "Ändra";
-        finishedListChangeButton.setAttribute("id", "changeButtonid2" + ChangeButtonCounter2);
+        finishedListChangeButton.setAttribute("id", "changeButtonId2" + changeButtonCounter2);
         finishedListChangeButton.setAttribute("onclick", "changeInFinished(event)");
-        ChangeButtonCounter2++;
+        changeButtonCounter2++;
         finishedListItem.appendChild(finishedListChangeButton);
 
     } else {
@@ -115,7 +113,7 @@ function createFinishedList(event) {
         let finishedListInput = document.createElement("input");
         finishedListInput.setAttribute("type", "text");
 
-        let syssla2 = document.getElementById(y).parentElement.children[0].value;
+        let syssla2 = document.getElementById(yx).parentElement.children[0].value;
         finishedListInput.setAttribute("value", syssla2);
 
         finishedListInput.setAttribute("disabled", true)
@@ -123,9 +121,9 @@ function createFinishedList(event) {
 
         let finishedListChangeButton = document.createElement("button");
         finishedListChangeButton.innerHTML = "Ändra";
-        finishedListChangeButton.setAttribute("id", "changeButtonid2" + ChangeButtonCounter2);
+        finishedListChangeButton.setAttribute("id", "changeButtonId2" + changeButtonCounter2);
         finishedListChangeButton.setAttribute("onclick", "changeInFinished(event)");
-        ChangeButtonCounter2++;
+        changeButtonCounter2++;
         finishedListItem.appendChild(finishedListChangeButton);
     }
     
@@ -137,22 +135,21 @@ function removeRowInToDo(event) {
 
     if (typeof document.getElementById(x).parentElement.parentElement.children[0] === "undefined" || typeof document.getElementById(x).parentElement.parentElement.children[1] === "undefined") {
         
-        console.log(document.getElementById(x).parentElement.children[0].value);
         document.getElementById(x).parentElement.parentElement.previousSibling.remove();
         document.getElementById(x).parentElement.parentElement.remove();
     } else {
-        console.log(document.getElementById(x).parentElement.children[0].value);
         document.getElementById(x).parentElement.remove();
     }
 }
 
 function changeInFinished(event) {
     let z = event.target.getAttribute("id");
-    if (document.getElementById(z).previousSibling.disabled=== "true") {
-        document.getElementById(z).previousSibling.disabled=false;
+    if (document.getElementById(z).previousSibling.disabled == true) {
+        document.getElementById(z).previousSibling.disabled = false;
     } else {
-        document.getElementById(z).previousSibling.disabled=true;
+        document.getElementById(z).previousSibling.disabled = true;
     }
+    
 }
 
 
