@@ -3,6 +3,8 @@ let finishedClickCounter = 0;
 let finishedButtonCounter = 0;
 let changeButtonCounter = 0;
 let changeButtonCounter2 = 0;
+let removeButtonCounter = 0;
+let removeButtonCounter2 = 0;
 
 document.getElementById("addTodo").addEventListener("click", function addToDoList() {
     let x = document.getElementById("syssla").value;
@@ -59,6 +61,13 @@ function addListItemforToDoList() {
     finishedButtonCounter++;
     toDoListItem.appendChild(toDoListFinishedButton);
 
+    let toDoListRemoveButton = document.createElement("button");
+    toDoListRemoveButton.innerHTML = "Radera";
+    toDoListRemoveButton.setAttribute("id", "removeButton" + removeButtonCounter);
+    toDoListRemoveButton.setAttribute("onclick", "removeRowInToDo(event)");
+    removeButtonCounter++;
+    toDoListItem.appendChild(toDoListRemoveButton);
+
 }
 
 function changeInToDo(event) {
@@ -78,7 +87,6 @@ function changeInToDo(event) {
 }
 
 function createFinishedList(event) {
-    toDoClickCounter--;
     finishedClickCounter++;
     let yx = event.target.getAttribute("id");
     if (typeof document.body.children[5] === "undefined") {
@@ -111,6 +119,13 @@ function createFinishedList(event) {
         changeButtonCounter2++;
         finishedListItem.appendChild(finishedListChangeButton);
 
+        let finishedListRemoveButton = document.createElement("button");
+        finishedListRemoveButton.innerHTML = "Radera";
+        finishedListRemoveButton.setAttribute("id", "removeButton2" + removeButtonCounter2);
+        finishedListRemoveButton.setAttribute("onclick", "removeRowInFinished(event)");
+        removeButtonCounter++;
+        finishedListItem.appendChild(finishedListRemoveButton);
+
     } else {
         let finishedListItem = document.createElement("li");
         finishedListItem.setAttribute("class", "finishedListItem");
@@ -131,12 +146,20 @@ function createFinishedList(event) {
         finishedListChangeButton.setAttribute("onclick", "changeInFinished(event)");
         changeButtonCounter2++;
         finishedListItem.appendChild(finishedListChangeButton);
+
+        let finishedListRemoveButton = document.createElement("button");
+        finishedListRemoveButton.innerHTML = "Radera";
+        finishedListRemoveButton.setAttribute("id", "removeButton2" + removeButtonCounter2);
+        finishedListRemoveButton.setAttribute("onclick", "removeRowInFinished(event)");
+        removeButtonCounter++;
+        finishedListItem.appendChild(finishedListRemoveButton);        
     }
     
 }
 
 function removeRowInToDo(event) {
-
+    removeButtonCounter--;
+    toDoClickCounter--;
     let x = event.target.getAttribute("id");
 
     if (typeof document.getElementById(x).parentElement.parentElement.children[0] === "undefined" || typeof document.getElementById(x).parentElement.parentElement.children[1] === "undefined") {
@@ -162,6 +185,20 @@ function changeInFinished(event) {
         }
     }
     
+}
+
+function removeRowInFinished(event) {
+    removeButtonCounter2--;
+    finishedClickCounter--;
+    let x = event.target.getAttribute("id");
+
+    if (typeof document.getElementById(x).parentElement.parentElement.children[0] === "undefined" || typeof document.getElementById(x).parentElement.parentElement.children[1] === "undefined") {
+        
+        document.getElementById(x).parentElement.parentElement.previousSibling.remove();
+        document.getElementById(x).parentElement.parentElement.remove();
+    } else {
+        document.getElementById(x).parentElement.remove();
+    }
 }
 
 
