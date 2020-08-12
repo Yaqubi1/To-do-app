@@ -1,5 +1,4 @@
 let toDoClickCounter = 0;
-let finishedClickCounter = 0;
 let finishedButtonCounter = 0;
 let changeButtonCounter = 0;
 let changeButtonCounter2 = 0;
@@ -27,8 +26,8 @@ document.getElementById("addTodo").addEventListener("click", function addToDoLis
 
     } else {
     addListItemforToDoList();
-    // resetForm();
     }
+    document.getElementById("syssla").value = '';
 });
 
 function addListItemforToDoList() {
@@ -87,7 +86,6 @@ function changeInToDo(event) {
 }
 
 function createFinishedList(event) {
-    finishedClickCounter++;
     let yx = event.target.getAttribute("id");
     if (typeof document.body.children[5] === "undefined") {
         let finishedTitle = document.createElement("h1");
@@ -189,7 +187,6 @@ function changeInFinished(event) {
 
 function removeRowInFinished(event) {
     removeButtonCounter2--;
-    finishedClickCounter--;
     let x = event.target.getAttribute("id");
 
     if (typeof document.getElementById(x).parentElement.parentElement.children[0] === "undefined" || typeof document.getElementById(x).parentElement.parentElement.children[1] === "undefined") {
@@ -200,8 +197,3 @@ function removeRowInFinished(event) {
         document.getElementById(x).parentElement.remove();
     }
 }
-
-
-// function resetForm() {
-//     document.getElementById("myForm").reset();
-// }
