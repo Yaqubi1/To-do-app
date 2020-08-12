@@ -66,7 +66,13 @@ function changeInToDo(event) {
     if (document.getElementById(y).parentElement.children[0].disabled == true) {
         document.getElementById(y).parentElement.children[0].disabled = false;
     } else {
-        document.getElementById(y).parentElement.children[0].disabled = true;
+        let x = document.getElementById(y).parentElement.children[0].value;
+        if (x == "") {
+        alert("En syssla måste skrivas in.");
+        return;
+        } else {
+            document.getElementById(y).parentElement.children[0].disabled = true;
+        }
     }
     
 }
@@ -147,7 +153,13 @@ function changeInFinished(event) {
     if (document.getElementById(z).previousSibling.disabled == true) {
         document.getElementById(z).previousSibling.disabled = false;
     } else {
+        let x = document.getElementById(z).previousSibling.value;
+        if (x == "") {
+        alert("En syssla måste skrivas in.");
+        return;
+        } else {
         document.getElementById(z).previousSibling.disabled = true;
+        }
     }
     
 }
