@@ -57,12 +57,15 @@ function addListItemforToDoList() {
     toDoListFinishedButton.innerHTML = "Färdig";
     toDoListFinishedButton.setAttribute("id", "finishedButton" + finishedButtonCounter);
     toDoListFinishedButton.setAttribute("onclick", "createFinishedList(event); removeRowInToDo(event)");
+    toDoListFinishedButton.setAttribute("class", "btn btn-success");
+    
     finishedButtonCounter++;
     toDoListItem.appendChild(toDoListFinishedButton);
 
     let toDoListRemoveButton = document.createElement("button");
     toDoListRemoveButton.innerHTML = "Radera";
     toDoListRemoveButton.setAttribute("id", "removeButton" + removeButtonCounter);
+    toDoListRemoveButton.setAttribute("class", "btn btn-danger");
     toDoListRemoveButton.setAttribute("onclick", "removeRowInToDo(event)");
     removeButtonCounter++;
     toDoListItem.appendChild(toDoListRemoveButton);
@@ -120,6 +123,7 @@ function createFinishedList(event) {
         let finishedListRemoveButton = document.createElement("button");
         finishedListRemoveButton.innerHTML = "Radera";
         finishedListRemoveButton.setAttribute("id", "removeButton2" + removeButtonCounter2);
+        finishedListRemoveButton.setAttribute("class", "btn btn-danger");
         finishedListRemoveButton.setAttribute("onclick", "removeRowInFinished(event)");
         removeButtonCounter++;
         finishedListItem.appendChild(finishedListRemoveButton);
