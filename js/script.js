@@ -7,10 +7,12 @@ let removeButtonCounter2 = 0;
 
 document.getElementById("addTodo").addEventListener("click", function addToDoList() {
     let x = document.getElementById("syssla").value;
+    
     if (x == "") {
       alert("En syssla måste skrivas in.");
       return;
     }
+
     toDoClickCounter++;
     if (toDoClickCounter == 1) {
         let toDoTitle = document.createElement("h1");
@@ -71,11 +73,12 @@ function addListItemforToDoList() {
     toDoListRemoveButton.setAttribute("onclick", "removeRowInToDo(event)");
     removeButtonCounter++;
     toDoListItem.appendChild(toDoListRemoveButton);
-
 }
 
 function changeInToDo(event) {
+
     let y = event.target.getAttribute("id");
+
     if (document.getElementById(y).parentElement.children[0].disabled == true) {
         document.getElementById(y).parentElement.children[0].disabled = false;
     } else {
@@ -86,12 +89,12 @@ function changeInToDo(event) {
         } else {
             document.getElementById(y).parentElement.children[0].disabled = true;
         }
-    }
-    
+    }   
 }
 
 function createFinishedList(event) {
     let yx = event.target.getAttribute("id");
+
     if (typeof document.body.children[5] === "undefined") {
         let finishedTitle = document.createElement("h1");
         finishedTitle.innerHTML = "Färdiga";
@@ -101,45 +104,37 @@ function createFinishedList(event) {
         let finishedList = document.createElement("ul");
         finishedList.setAttribute("id", "finishedList");
         document.body.appendChild(finishedList);
-
-        commonItemsFinishedList();
-        function commonItemsFinishedList() {
-            let finishedListItem = document.createElement("li");
-        finishedListItem.setAttribute("class", "finishedListItem");
-        document.getElementById("finishedList").appendChild(finishedListItem);
-
-        let finishedListInput = document.createElement("input");
-        finishedListInput.setAttribute("class", "form-control");
-        finishedListInput.setAttribute("type", "text");
-
-        let syssla2 = document.getElementById(yx).parentElement.children[0].value;
-        finishedListInput.setAttribute("value", syssla2);
-
-        finishedListInput.setAttribute("disabled", true)
-        finishedListItem.appendChild(finishedListInput);
-
-        let finishedListChangeButton = document.createElement("button");
-        finishedListChangeButton.innerHTML = "Ändra";
-        finishedListChangeButton.setAttribute("id", "changeButtonId2" + changeButtonCounter2);
-        finishedListChangeButton.setAttribute("class", "btn btn-warning");
-        finishedListChangeButton.setAttribute("onclick", "changeInFinished(event)");
-        changeButtonCounter2++;
-        finishedListItem.appendChild(finishedListChangeButton);
-
-        let finishedListRemoveButton = document.createElement("button");
-        finishedListRemoveButton.innerHTML = "Radera";
-        finishedListRemoveButton.setAttribute("id", "removeButton2" + removeButtonCounter2);
-        finishedListRemoveButton.setAttribute("class", "btn btn-danger");
-        finishedListRemoveButton.setAttribute("onclick", "removeRowInFinished(event)");
-        removeButtonCounter++;
-        finishedListItem.appendChild(finishedListRemoveButton);
-        }
-
-
-    } else {
-        commonItemsFinishedList();       
     }
-    
+
+    let finishedListItem = document.createElement("li");
+    finishedListItem.setAttribute("class", "finishedListItem");
+    document.getElementById("finishedList").appendChild(finishedListItem);
+
+    let finishedListInput = document.createElement("input");
+    finishedListInput.setAttribute("class", "form-control");
+    finishedListInput.setAttribute("type", "text");
+
+    let syssla2 = document.getElementById(yx).parentElement.children[0].value;
+    finishedListInput.setAttribute("value", syssla2);
+
+    finishedListInput.setAttribute("disabled", true)
+    finishedListItem.appendChild(finishedListInput);
+
+    let finishedListChangeButton = document.createElement("button");
+    finishedListChangeButton.innerHTML = "Ändra";
+    finishedListChangeButton.setAttribute("id", "changeButtonId2" + changeButtonCounter2);
+    finishedListChangeButton.setAttribute("class", "btn btn-warning");
+    finishedListChangeButton.setAttribute("onclick", "changeInFinished(event)");
+    changeButtonCounter2++;
+    finishedListItem.appendChild(finishedListChangeButton);
+
+    let finishedListRemoveButton = document.createElement("button");
+    finishedListRemoveButton.innerHTML = "Radera";
+    finishedListRemoveButton.setAttribute("id", "removeButton2" + removeButtonCounter2);
+    finishedListRemoveButton.setAttribute("class", "btn btn-danger");
+    finishedListRemoveButton.setAttribute("onclick", "removeRowInFinished(event)");
+    removeButtonCounter++;
+    finishedListItem.appendChild(finishedListRemoveButton);
 }
 
 function removeRowInToDo(event) {
@@ -169,7 +164,6 @@ function changeInFinished(event) {
         document.getElementById(z).previousSibling.disabled = true;
         }
     }
-    
 }
 
 function removeRowInFinished(event) {
