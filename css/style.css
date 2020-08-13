@@ -1,19 +1,24 @@
-/* input {
-    height: 20px;
+body {
+    
+    background-image: linear-gradient(#ccc 1px, rgb(255, 255, 195) 1px);
+    background-size: 20px 36px;
+
 }
 
-button {
-    height: 26px;
+main,
+ul,
+li,
+input[type=text] {
+    width: 50vw;
+    min-width: 500px;
+    display: block;
+    margin: 10px auto 0 auto;
 }
 
-#addTodo {
-    height: 26px;
-} */
-
-/* #toDoTitle {
- 
+ul {
+    padding: 0;
 }
 
-#changeButton {
-
-} */
+h1 {
+    text-align: center;
+}
