@@ -49,6 +49,7 @@ function addListItemforToDoList() {
     let toDoListChangeButton = document.createElement("button");
     toDoListChangeButton.innerHTML = "Ändra";
     toDoListChangeButton.setAttribute("id", "changeButtonId" + changeButtonCounter);
+    toDoListChangeButton.setAttribute("class", "btn btn-warning");
     toDoListChangeButton.setAttribute("onclick", "changeInToDo(event)");
     changeButtonCounter++;
     toDoListItem.appendChild(toDoListChangeButton);
