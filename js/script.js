@@ -102,7 +102,9 @@ function createFinishedList(event) {
         finishedList.setAttribute("id", "finishedList");
         document.body.appendChild(finishedList);
 
-        let finishedListItem = document.createElement("li");
+        commonItemsFinishedList();
+        function commonItemsFinishedList() {
+            let finishedListItem = document.createElement("li");
         finishedListItem.setAttribute("class", "finishedListItem");
         document.getElementById("finishedList").appendChild(finishedListItem);
 
@@ -131,35 +133,11 @@ function createFinishedList(event) {
         finishedListRemoveButton.setAttribute("onclick", "removeRowInFinished(event)");
         removeButtonCounter++;
         finishedListItem.appendChild(finishedListRemoveButton);
+        }
+
 
     } else {
-        let finishedListItem = document.createElement("li");
-        finishedListItem.setAttribute("class", "finishedListItem");
-        document.getElementById("finishedList").appendChild(finishedListItem);
-
-        let finishedListInput = document.createElement("input");
-        finishedListInput.setAttribute("class", "form-control");
-        finishedListInput.setAttribute("type", "text");
-
-        let syssla2 = document.getElementById(yx).parentElement.children[0].value;
-        finishedListInput.setAttribute("value", syssla2);
-
-        finishedListInput.setAttribute("disabled", true)
-        finishedListItem.appendChild(finishedListInput);
-
-        let finishedListChangeButton = document.createElement("button");
-        finishedListChangeButton.innerHTML = "Ändra";
-        finishedListChangeButton.setAttribute("id", "changeButtonId2" + changeButtonCounter2);
-        finishedListChangeButton.setAttribute("onclick", "changeInFinished(event)");
-        changeButtonCounter2++;
-        finishedListItem.appendChild(finishedListChangeButton);
-
-        let finishedListRemoveButton = document.createElement("button");
-        finishedListRemoveButton.innerHTML = "Radera";
-        finishedListRemoveButton.setAttribute("id", "removeButton2" + removeButtonCounter2);
-        finishedListRemoveButton.setAttribute("onclick", "removeRowInFinished(event)");
-        removeButtonCounter++;
-        finishedListItem.appendChild(finishedListRemoveButton);        
+        commonItemsFinishedList();       
     }
     
 }
