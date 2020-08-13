@@ -38,6 +38,7 @@ function addListItemforToDoList() {
 
     let toDoListInput = document.createElement("input");
     toDoListInput.setAttribute("type", "text");
+    toDoListInput.setAttribute("class", "form-control");
     toDoListInput.setAttribute("id", "changeButtonId" + changeButtonCounter);
 
     let syssla = document.getElementById("syssla");
@@ -106,6 +107,7 @@ function createFinishedList(event) {
         document.getElementById("finishedList").appendChild(finishedListItem);
 
         let finishedListInput = document.createElement("input");
+        finishedListInput.setAttribute("class", "form-control");
         finishedListInput.setAttribute("type", "text");
 
         let syssla2 = document.getElementById(yx).parentElement.children[0].value;
@@ -117,6 +119,7 @@ function createFinishedList(event) {
         let finishedListChangeButton = document.createElement("button");
         finishedListChangeButton.innerHTML = "Ändra";
         finishedListChangeButton.setAttribute("id", "changeButtonId2" + changeButtonCounter2);
+        finishedListChangeButton.setAttribute("class", "btn btn-warning");
         finishedListChangeButton.setAttribute("onclick", "changeInFinished(event)");
         changeButtonCounter2++;
         finishedListItem.appendChild(finishedListChangeButton);
@@ -135,6 +138,7 @@ function createFinishedList(event) {
         document.getElementById("finishedList").appendChild(finishedListItem);
 
         let finishedListInput = document.createElement("input");
+        finishedListInput.setAttribute("class", "form-control");
         finishedListInput.setAttribute("type", "text");
 
         let syssla2 = document.getElementById(yx).parentElement.children[0].value;
