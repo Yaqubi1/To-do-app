@@ -12,7 +12,7 @@ input[type=text] {
     width: 50vw;
     min-width: 500px;
     display: block;
-    margin: 10px auto 0 auto;
+    margin: 0 auto;
 }
 
 ul {
@@ -21,4 +21,5 @@ ul {
 
 h1 {
     text-align: center;
+    margin: 0 !important;
 }
